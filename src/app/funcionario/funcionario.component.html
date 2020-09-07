@@ -1,0 +1,42 @@
+<h1>Funcionario</h1>
+
+<div class="container">
+    <div class="alert alert-warning" *ngIf="funcionarioForm.dirty && funcionarioForm.invalid">Enter valid values</div>
+    <!-- <div class="alert alert-warning" *ngIf="funcionarioForm.dirty && email.invalid">Email not valid</div> -->
+    <!-- <div class="alert alert-warning" *ngIf="todoForm.dirty && targetDate.invalid">Enter valid Target Date</div>  -->
+
+
+    <form (ngSubmit)="!funcionarioForm.invalid && saveFuncionario()" #funcionarioForm="ngForm">
+
+        <fieldset class="form-group">
+            <label>Nome</label>
+            <input type="text"
+             #nome="ngModel" 
+             [(ngModel)]="funcionario.nome" class="form-control" name="nome" required="required" minlength="3">
+        </fieldset>
+
+        <fieldset class="form-group">
+            <label>Email</label>
+            <input type="email"
+             #email="ngModel" 
+             [(ngModel)]="funcionario.email" class="form-control" name="email" required="required">
+        </fieldset>
+
+        <fieldset class="form-group">
+            <label>Cpf</label>
+            <input type="text"
+             #cpf="ngModel" 
+             [(ngModel)]="funcionario.cpf" class="form-control" name="cpf" required="required" minlength="11">
+        </fieldset>
+
+        <fieldset class="form-group">
+            <label>Cargo</label>
+            <input type="text"
+             #cargo="ngModel" 
+             [(ngModel)]="funcionario.cargo" class="form-control" name="cargo" required="required">
+        </fieldset>
+
+        <button type="submit" class="btn btn-success">Save</button>
+    </form>
+
+</div>

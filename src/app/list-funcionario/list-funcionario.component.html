@@ -1,0 +1,47 @@
+<div class="container">
+    <hr/>
+    <div class="row justify-content-md-center">
+        <div class="col-md-4">
+            <button (click)="addFuncionario()" class="btn btn-success">Adiciona Funcionario</button>
+        </div>
+        <div class="col-md">
+            <h1>Funcionários</h1>
+        </div>
+    </div>
+    <hr/>	
+    <div class="alert alert-success" *ngIf="message">{{message}}</div>
+    <div class="row">
+        <div class="col-12">
+    
+            <table class="table" id="datatable">
+              <thead class="thead-dark">
+                <tr>
+                  <th>Id</th>
+                  <th>Nome</th>
+                  <th>Email</th>
+                  <th>Cpf</th>
+                  <th>Cargo</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let func of funcionarios">
+                    <th>{{func.id}}</th>
+                    <td>{{func.nome}}</td>
+                    <td>{{func.email}}</td>
+                    <td>{{func.cpf}}</td>
+                    <td>{{func.cargo}}</td>
+            
+                    <td>
+                        <button (click)="updateFuncionario(func.id)" class="btn btn-success">Update</button>
+                        |
+                        <button (click)="deleteFuncionario(func.id, func.nome)" class="btn btn-warning">Delete</button>
+                    </td>
+                </tr>  
+      
+                
+              </tbody>
+            </table>
+        </div>
+    </div>
+</div>
